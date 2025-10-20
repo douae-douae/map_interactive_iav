@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Quick Start - Leaflet</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="leaflet.js" ></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+
+
+<div id="map" style="width: 600px; height: 400px;"></div>
+<script>
+
+	const map = L.map('map').setView([33.976801430199174, -6.866682865982936], 14);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	const marker = L.marker([33.976829675350714, -6.866648802725633]).addTo(map)
+		.bindPopup('<b> Welcome at IAVH2!</b><br />I am a popup.').openPopup();
+
+	const circle = L.circle([33.976801430199174, -6.866682865982936], {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.2,
+		radius: 400
+	}).addTo(map).bindPopup('I am a circle.');
+
+	const polygon = L.polygon([
+		[33.97700689970529, -6.865881137070335],
+		[33.9767905536029, -6.865774408952013],
+		[33.97672417404282, -6.866035298193994],
+		[33.97694789545898, -6.866127203655263]
+	]).addTo(map).bindPopup('Departement Topo.');
+
+	const polygon2 = L.polygon([
+		[33.97610641642737, -6.866703391557523],
+		[33.97600187485256, -6.86653709497462],
+		[33.97591957677707, -6.866612197146859],
+		[33.97602411832483, -6.8667865402167045]
+	]).addTo(map).bindPopup('Departement de parasitologie');
+
+	const polygon3 = L.polygon([
+		[33.97479175347721, -6.865873179191479],
+		[33.97501594854576, -6.865663658470671],
+		[33.97520373775224, -6.86594505571614],
+		[33.975001093299475, -6.866131628544524]
+	]).addTo(map).bindPopup('Departement Agronomie');
+
+	const polygon4 = L.polygon([
+		[33.974736238862704, -6.8661467746937355],
+		[33.97457524167996, -6.86591435570277],
+		[33.97438250019975, -6.866100292084297],
+		[33.9745389619864, -6.866338179550347]
+	]).addTo(map).bindPopup('Departement Industrie Agro Alimentaires');
+
+
+	const polygon5 = L.polygon([
+		[33.980282247906395, -6.863653363113668],
+		[33.98010253249812, -6.863380099836004],
+		[33.97988635254845, -6.863590542930543],
+		[33.98006346289182, -6.863863805990249]
+	]).addTo(map).bindPopup('Bureau du directeur IAV Hassan 2');
+
+	const polygon6 = L.polygon([
+		[33.97968840253269, -6.862557169997415],
+		[33.97937064488877, -6.8617530889373715],
+		[33.98052707758774, -6.8607354199692585],
+		[33.98070158279318, -6.861322779038113],
+		[33.98075367375635, -6.8620703256541855],
+		[33.98079013735587, -6.86252576313492],
+		[33.98034475583039, -6.862770756155266],
+		[33.98004523234228, -6.862283908887453],
+		[33.9799905359711, -6.86233416444539]
+	]).addTo(map).bindPopup('Internat de IAV Hassan 2');
+
+	const polygon7 = L.polygon([
+		[33.97364423751344, -6.867568054248243],
+		[33.973345965270745, -6.867837805300078],
+		[33.97346642060764, -6.8680383901495565],
+		[33.97362702908641, -6.867882764860186],
+		[33.973799108036594, -6.868152518147539],
+		[33.973945376553196, -6.868024559386579]
+	]).addTo(map).bindPopup('Departement Veterinaire ');
+
+
+
+	 const points = [
+  		[33.97525998179648, -6.869496149561888], 
+		[33.976840820095575, -6.867978457451183], 
+		[33.980363997926894, -6.864652510140624],
+      		[33.981241287735436, -6.863948507007744],
+		[33.98143047773127, -6.864151313712745]
+	];
+   
+   	const ligne = L.polyline(points, {
+        	color: 'blue',
+        	weight: 3,      
+       		opacity: 0.8,    
+        	dashArray: '5,10' 
+        }).addTo(map);
+
+	const points1 = [
+  		[33.9803743568214, -6.8645960857691], 
+		[33.97928091389339, -6.864892547580841], 
+		[33.97899837366556, -6.864795204933277]
+	];
+
+	const ligne1 = L.polyline(points1, {
+    	  	color: 'blue',
+     		weight: 3,      
+      		opacity: 0.8,    
+      		dashArray: '5,10' 
+    	}).addTo(map);
+
+	 const points2 = [
+  		[33.97767178530162, -6.867106999304738], 
+		[33.97658145456387, -6.866311885289157], 
+		[33.975608983952434, -6.867231368829382],
+      		[33.97546900606774, -6.867231370448157],
+		[33.975317977251564, -6.867395723956656],
+		[33.97437864562608, -6.86825746383256],
+		[33.97409500358528, -6.868608380914699]
+	];
+   
+   	const ligne2 = L.polyline(points2, {
+        	color: 'blue',
+        	weight: 3,      
+       		opacity: 0.8,    
+        	dashArray: '5,10' 
+        }).addTo(map);
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+
+
+</body>
+</html>
